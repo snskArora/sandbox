@@ -22,6 +22,9 @@ jobs:
         secret: ${{ steps.generate_token.outputs.token }}
         approvers: sunny-1651
         minimum-approvals: 1
+      env:
+        target-repository: first_go_project
+        target-repository-owner: sunny-1651
 
     - name: Extract regions from JSON
       id: set-regions
