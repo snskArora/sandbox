@@ -5,38 +5,50 @@ on: [push]
 jobs:
   prepare-matrix:
     runs-on: ubuntu-latest
-    outputs:
-      regions: ${{ steps.set-regions.outputs.regions }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: s1
+      run: echo "hjk"
 
-      - name: Extract regions from JSON
-        id: set-regions
-        run: |
-          # regions="'"
-          regions+=$(jq -c -r '.locations | split(",")' user_input.json)
-          # regions+="'"
-          echo "regions=$regions"
-          echo "regions=$regions" >> $GITHUB_OUTPUT
-          # Extract regions from input.json and format as a JSON array
-          # regions=$(jq -r '.regions | @csv' user_input.json | tr -d '"' | tr -d ' ')
-          # echo "REGIONS=[${regions}]" >> $GITHUB_ENV
-          # cat $GITHUB_ENV
-          # echo "::set-output name=regions::[$regions]"
+    - name: Generate token
+      id: generate_token
+      uses: tibdex/github-app-token@v1
+      with:
+        app_id: ${{ secrets.APP_ID }}
+        private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: prepare-matrix
-    strategy:
-      matrix:
-        region: ${{ fromJson(needs.prepare-matrix.outputs.regions) }}
-        # region: ["nane1","nane2","nane3","usce2"]
-    steps:
-      - name: Deploy to AWS
-        run: |
-          echo "Deploying to region: ${{ matrix.region }}" #${{ matrix.region }}"
-          # Add your deployment commands here
+    - name: issue
+      uses: sunny-1651/manual-approval@main-personal-use
+      with:
+        secret: ${{ steps.generate_token.outputs.token }}
+        approvers: sunny-1651
+        minimum-approvals: 1
+
+    - name: Extract regions from JSON
+      id: set-regions
+      run: |
+        # regions="'"
+        regions+=$(jq -c -r '.locations | split(",")' user_input.json)
+        # regions+="'"
+        echo "regions=$regions"
+        echo "regions=$regions" >> $GITHUB_OUTPUT
+        # Extract regions from input.json and format as a JSON array
+        # regions=$(jq -r '.regions | @csv' user_input.json | tr -d '"' | tr -d ' ')
+        # echo "REGIONS=[${regions}]" >> $GITHUB_ENV
+        # cat $GITHUB_ENV
+        # echo "::set-output name=regions::[$regions]"
+
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: prepare-matrix
+  #   strategy:
+  #     matrix:
+  #       region: ${{ fromJson(needs.prepare-matrix.outputs.regions) }}
+  #       # region: ["nane1","nane2","nane3","usce2"]
+  #   steps:
+  #     - name: Deploy to AWS
+  #       run: |
+  #         echo "Deploying to region: ${{ matrix.region }}" #${{ matrix.region }}"
+  #         # Add your deployment commands here
 
 
 
