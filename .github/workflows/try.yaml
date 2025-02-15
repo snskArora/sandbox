@@ -17,7 +17,7 @@ jobs:
         private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
     - name: issue
-      uses: sunny-1651/manual-approval@main-personal-use
+      uses: sunny-1651/manual-approval@checkin
       with:
         secret: ${{ steps.generate_token.outputs.token }}
         approvers: sunny-1651
