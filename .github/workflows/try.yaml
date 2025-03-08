@@ -20,7 +20,8 @@ jobs:
       id: tag-bump
       shell: bash
       run: |
-        new_tag=$(bash .github/tag-bump.sh rc)
+        recent_tag=$(ls .git/refs/tags | sort -Vr | head -n1)
+        new_tag=$(bash .github/tag-bump.sh $recent_tag rc)
         echo "new tag: $new_tag"
         ehco "new_tag=$new_tag" >> $GITHUB_OUTPUT
 

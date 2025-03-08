@@ -43,8 +43,7 @@ increment_version() {
   fi
 }
 
-recent_tag=$(ls .git/refs/tags | sort -Vr | head -n1)
 # recent_tag=$(curl -s "https://api.github.com/repos/argoproj/argo-cd/tags" | grep '"name":' | sed -E 's/.*"name": "([^"]+)".*/\1/' | sort -Vr | head -n1)
 
-echo "$(increment_version $recent_tag $1)"
+echo "$(increment_version $1 $2)"
 
