@@ -1,6 +1,22 @@
 name: Dynamic Matrix Example
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 'Select the type of release bump'
+        required: true
+        type: 'choice'
+        options:
+          - patch
+          - minor
+          - major
+          - rc
+        default: rc
+  pull_request:
+    types: [closed]
+    branches:
+      - main
 
 jobs:
   prepare-matrix:
@@ -23,7 +39,7 @@ jobs:
         # recent_tag=$(ls .git/refs/tags | sort -Vr | head -n1)
         recent_tag=$(curl -s "https://api.github.com/repos/${{ github.repository }}/tags" | grep '"name":' | sed -E 's/.*"name": "([^"]+)".*/\1/' | sort -Vr | head -n1)
         echo "--- $recent_tag"
-        new_tag=$(bash .github/tag-bump.sh $recent_tag rc)
+        new_tag=$(bash .github/tag-bump.sh $recent_tag ${{ inputs.bump }})
         echo "new tag: $new_tag"
         echo "new_tag=$new_tag" >> $GITHUB_OUTPUT
 
