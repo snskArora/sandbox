@@ -20,7 +20,8 @@ jobs:
       id: tag-bump
       shell: bash
       run: |
-        recent_tag=$(ls .git/refs/tags | sort -Vr | head -n1)
+        # recent_tag=$(ls .git/refs/tags | sort -Vr | head -n1)
+        recent_tag=$(curl -s "https://api.github.com/repos/${{ github.repository }}/tags" | grep '"name":' | sed -E 's/.*"name": "([^"]+)".*/\1/' | sort -Vr | head -n1)
         echo "--- $recent_tag"
         new_tag=$(bash .github/tag-bump.sh $recent_tag rc)
         echo "new tag: $new_tag"

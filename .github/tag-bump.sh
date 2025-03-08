@@ -39,7 +39,7 @@ increment_version() {
   else
     echo "Error: Version must be in format vX.Y.Z or vX.Y.Z-rc.N" >&2
     echo $1
-    return 1
+    exit 1
   fi
 }
 
