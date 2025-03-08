@@ -40,6 +40,20 @@ jobs:
         new_tag=$(bash .github/tag-bump.sh $recent_tag ${{ inputs.bump }})
         echo "new tag: $new_tag"
         echo "new_tag=$new_tag" >> $GITHUB_OUTPUT
+      
+    - name: Create Tag
+      env:
+        GH_TOKEN: ${{ steps.generate_token.outputs.token }}
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git tag -a "v${{ steps.tag-bump.outputs.new_tag }}" -m "Release v${{ steps.tag-bump.outputs.new_tag }}"
+        git push origin "v${{ steps.tag-bump.outputs.new_tag }}"
+        if [[ "rc" != "${{ inputs.bump }}" ]]; then
+          tag=$(echo "${{ steps.tag-bump.outputs.new_tag }}" | cut -d '.' -f 1)
+          git tag -a "v$tag" -m "Release v${{ steps.tag-bump.outputs.new_tag }}"
+          git push origin "v$tag"
+        fi
 
     - name: changelog-ci
       uses: saadmk11/changelog-ci@v1.1.2
