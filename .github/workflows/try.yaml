@@ -13,11 +13,9 @@ on:
           - major
           - rc
         default: rc
-  pull_request:
-    types: [closed]
+  push:
     branches:
-      - appr
-
+      - '*'
 jobs:
   prepare-matrix:
     runs-on: ubuntu-latest
