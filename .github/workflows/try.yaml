@@ -21,9 +21,10 @@ jobs:
       shell: bash
       run: |
         recent_tag=$(ls .git/refs/tags | sort -Vr | head -n1)
+        echo "--- $recent_tag"
         new_tag=$(bash .github/tag-bump.sh $recent_tag rc)
         echo "new tag: $new_tag"
-        ehco "new_tag=$new_tag" >> $GITHUB_OUTPUT
+        echo "new_tag=$new_tag" >> $GITHUB_OUTPUT
 
     - name: changelog-ci
       uses: saadmk11/changelog-ci@v1.1.2
