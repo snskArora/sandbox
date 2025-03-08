@@ -30,6 +30,8 @@ jobs:
     - name: changelog-ci
       uses: saadmk11/changelog-ci@v1.1.2
       id: changelog-ci
+      with:
+        release_version: ${{ steps.tag-bump.outputs.new_tag }}
 
     - name: Create Release
       id: create_release
