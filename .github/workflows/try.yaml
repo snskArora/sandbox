@@ -8,4 +8,4 @@ jobs:
     steps:
     - name: new
       run: |
-        echo "env: ${{ secrets.testit  }} - ${{ secrets.testit }}"
+        echo "env: ${{ secrets.testit  }} - ${{ vars.testit }}"
