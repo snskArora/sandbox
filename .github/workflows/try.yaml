@@ -1,0 +1,11 @@
+on:
+  push:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    environment: e1
+    steps:
+    - name: new
+      run: |
+        echo "env: ${{env.testit}}"
