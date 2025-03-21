@@ -4,7 +4,10 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    environment: e1
+    strategy:
+      matrix:
+        env: ["e1", "e2"]
+    environment: ${{ matrix.env }}
     steps:
     - name: new
       run: |
