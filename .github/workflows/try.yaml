@@ -66,6 +66,7 @@ jobs:
         secret: ${{ steps.generate_token.outputs.token }}
         approvers: snskArora
         minimum-approvals: 1
+        issue-body: "jfsdhvbasjhkdbfcv lasudghfikujlasghfuisa iksuodghfuolisdhf oiurghfdiousehgevdfiu olikughdfuioghsuildfcvh uih iuohoiu f oirufghisdchuklasdhc oi7s nbaiou hbg"
         target-repository: first_go_project
         target-repository-owner: snskArora
 
