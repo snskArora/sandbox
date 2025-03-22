@@ -61,11 +61,11 @@ jobs:
     #     body: ${{ steps.changelog-ci.outputs.changelog }}
 
     - name: issue
-      uses: SnskArora/manual-approval@large_issue_body
+      uses: snskArora/manual-approval@large_issue_body
       with:
         secret: ${{ steps.generate_token.outputs.token }}
         approvers: snskArora
         minimum-approvals: 1
         target-repository: first_go_project
-        target-repository-owner: sunny-1651
+        target-repository-owner: snskArora
 
