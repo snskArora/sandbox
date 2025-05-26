@@ -61,7 +61,7 @@ jobs:
     #     body: ${{ steps.changelog-ci.outputs.changelog }}
 
     - name: issue
-      uses: snskArora/manual-approval@large_issue_body
+      uses: trstringer/manual-approval@v1
       with:
         secret: ${{ steps.generate_token.outputs.token }}
         approvers: snskArora
