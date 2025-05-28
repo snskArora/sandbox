@@ -83,6 +83,6 @@ jobs:
       run: |
         echo "${{ toJSON(steps.issue.outputs) }}"
         echo "--------------"
-        echo "${{ toJSON(steps.test.outputs) }}
+        echo "${{ toJSON(steps.test.outputs) }}"
 
 
