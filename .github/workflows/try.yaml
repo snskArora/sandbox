@@ -81,7 +81,7 @@ jobs:
         
     - name: Display all outputs as JSON
       run: |
-        echo "${{ toJSON(steps.example_step.issue) }}"
+        echo "${{ toJSON(steps.issue.outputs) }}"
         echo "--------------"
         cat $GITHUB_OUTPUT
 
