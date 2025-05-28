@@ -85,6 +85,8 @@ jobs:
         echo "${{ steps.issue.outputs.issue.issue-url }}"
         echo "${{ steps.issue.outputs.issue.approval-status }}"
         echo "--------------"
-        echo "${{ toJSON(steps.test.outputs.test1 }}"
+        echo "${{ toJSON(steps.issue.outputs }}"
+        echo "--------------"
+        echo "${{ toJSON(steps.test.outputs }}"
 
 
