@@ -82,7 +82,7 @@ jobs:
     - name: Display all outputs as JSON
       run: |
         echo "${{ steps.issue.outputs.issue.issue-number }}"
-        echo "${{ steps.issue.outputs.issue.issue-url }}"
+        echo "${{ steps.issue.outputs.issue.my_output_name }}"
         echo "${{ steps.issue.outputs.issue.approval-status }}"
         echo "--------------"
         echo "${{ toJSON(steps.issue.outputs) }}"
