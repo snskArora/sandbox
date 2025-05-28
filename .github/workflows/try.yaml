@@ -66,7 +66,7 @@ jobs:
         echo "test2=val2" >> $GITHUB_OUTPUT
 
     - id: issue
-      uses: trstringer/manual-approval@main
+      uses: trstringer/manual-approval@v1
       with:
         secret: ${{ steps.generate_token.outputs.token }}
         approvers: snskArora
