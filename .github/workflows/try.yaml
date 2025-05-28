@@ -60,12 +60,12 @@ jobs:
     #     release_name: Release ${{ steps.tag-bump.outputs.new_tag }}
     #     body: ${{ steps.changelog-ci.outputs.changelog }}
 
-    - name: test
+    - id: test
       run: |
         echo "test1=val1" >> $GITHUB_OUTPUT
         echo "test2=val2" >> $GITHUB_OUTPUT
 
-    - name: issue
+    - id: issue
       uses: snskarora/manual-approval@feature/gh_outputs
       with:
         secret: ${{ steps.generate_token.outputs.token }}
@@ -81,9 +81,10 @@ jobs:
         
     - name: Display all outputs as JSON
       run: |
-        echo "${{ steps.issue.outputs.issue.issue-number }}"
-        echo "${{ steps.issue.outputs.issue.my_output_name }}"
-        echo "${{ steps.issue.outputs.issue.approval-status }}"
+        echo "${{ steps.issue.outputs.issue-number }}"
+        echo "${{ steps.issue.outputs.my_output_name }}"
+        echo "${{ steps.issue.outputs.approval-status }}"
+        echo "${{ steps.test.outputs.test1 }}"
         echo "--------------"
         echo "${{ toJSON(steps.issue.outputs) }}"
         echo "--------------"
