@@ -60,6 +60,11 @@ jobs:
     #     release_name: Release ${{ steps.tag-bump.outputs.new_tag }}
     #     body: ${{ steps.changelog-ci.outputs.changelog }}
 
+    - name: test
+      run: |
+        echo "test1=val1" >> $GITHUB_OUTPUT
+        echo "test2=val2" >> $GITHUB_OUTPUT
+
     - name: issue
       uses: snskarora/manual-approval@feature/gh_outputs
       with:
@@ -73,8 +78,11 @@ jobs:
             Vivamus vestibulum placerat pellentesque. In quam ipsum, facilisis ac faucibus a, scelerisque vitae tortor. Praesent imperdiet ultrices erat ac consectetur. Donec sit amet lorem leo. Aliquam erat volutpat. Phasellus maximus nunc id maximus elementum. Nulla sagittis, enim sit amet consequat ultrices, nibh turpis consectetur dolor, ac gravida metus justo id neque. Donec eget tempus tellus, et vestibulum enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse et ex e
         target-repository: first_go_project
         target-repository-owner: snskArora
+        
     - name: Display all outputs as JSON
       run: |
         echo "${{ toJSON(steps.example_step.outputs) }}"
+        echo "--------------"
+        cat $GITHUB_OUTPUT
 
 
