@@ -64,9 +64,10 @@ jobs:
       run: |
         echo "test1=val1" >> $GITHUB_OUTPUT
         echo "test2=val2" >> $GITHUB_OUTPUT
+        echo "sdfklvhjcbaskhfvbjkhdasfvbhbjkhbjkhbjkhbdjkhcvbasdhjkbcajkshdcbkjashdcbjkhlasdbckjlahsdbchjkasdbcjkahs" >> plan.txt
 
     - id: issue
-      uses: trstringer/manual-approval@v1
+      uses: snskarora/manual-approval@patch_remote_url
       with:
         secret: ${{ steps.generate_token.outputs.token }}
         approvers: snskArora
