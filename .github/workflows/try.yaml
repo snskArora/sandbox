@@ -67,7 +67,7 @@ jobs:
         echo "sdfklvhjcbaskhfvbjkhdasfvbhbjkhbjkhbjkhbdjkhcvbasdhjkbcajkshdcbkjashdcbjkhlasdbckjlahsdbchjkasdbcjkahs" >> plan.txt
 
     - id: issue
-      uses: snskarora/manual-approval@patch_remote_url
+      uses: snskarora/manual-approval@patch/linting_versionUpgrade
       with:
         secret: ${{ steps.generate_token.outputs.token }}
         approvers: snskArora
