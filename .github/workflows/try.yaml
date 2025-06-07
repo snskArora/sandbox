@@ -22,10 +22,10 @@ on:
 
 jobs:
   prepare-matrix:
-    strategy:
-      matrix: 
-        os: [ubuntu-latest, macos-latest]
-    runs-on: matrix.os
+    # strategy:
+    #   matrix: 
+    #     os: [ubuntu-latest, macos-latest]
+    runs-on: ubuntu-latest
     steps:
     # - name: checkout
     #   uses: actions/checkout@v4
