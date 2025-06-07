@@ -21,7 +21,10 @@ on:
 
 jobs:
   prepare-matrix:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        os: [ubuntu-latest, macos-latest]
+    runs-on: matrix.os
     steps:
     # - name: checkout
     #   uses: actions/checkout@v4
@@ -67,7 +70,7 @@ jobs:
         echo "sdfklvhjcbaskhfvbjkhdasfvbhbjkhbjkhbjkhbdjkhcvbasdhjkbcajkshdcbkjashdcbjkhlasdbckjlahsdbchjkasdbcjkahs" >> plan.txt
 
     - id: issue
-      uses: snskarora/manual-approval@patch/linting_versionUpgrade
+      uses: snskarora/manual-approval@feature/existing_issues
       with:
         secret: ${{ steps.generate_token.outputs.token }}
         approvers: snskArora
