@@ -81,7 +81,7 @@ jobs:
             In sagittis non tortor ut convallis. Nulla placerat ipsum a porta porttitor. In odio eros, dignissim sed maximus ac, congue et enim. Nunc elementum auctor purus. Etiam pretium, libero vel luctus maximus, nibh turpis malesuada urna, a volutpat nunc tortor eget felis. Vestibulum sed tortor velit. Duis vitae maximus dolor. In hac habitasse platea dictumst. Suspendisse vel mattis enim. Duis vitae leo mauris. Morbi non tortor metus. Curabitur cursus convallis diam cursus tristique. Vivamus malesuada est est, vitae porttitor libero tristique sit amet. Aliquam egestas elementum risus, ac vehicula lectus tempus hendrerit. Maecenas condimentum massa id nunc euismod, ac cursus ex tempor. Vestibulum interdum purus vel pretium gravida.
 
             Vivamus vestibulum placerat pellentesque. In quam ipsum, facilisis ac faucibus a, scelerisque vitae tortor. Praesent imperdiet ultrices erat ac consectetur. Donec sit amet lorem leo. Aliquam erat volutpat. Phasellus maximus nunc id maximus elementum. Nulla sagittis, enim sit amet consequat ultrices, nibh turpis consectetur dolor, ac gravida metus justo id neque. Donec eget tempus tellus, et vestibulum enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse et ex e
-        issue-body-file-path: test.txt
+        issue-body-file-path: plan.txt
         
     - name: Display all outputs as JSON
       run: |
