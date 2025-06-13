@@ -71,7 +71,7 @@ jobs:
         echo "sdfklvhjcbaskhfvbjkhdasfvbhbjkhbjkhbjkhbdjkhcvbasdhjkbcajkshdcbkjashdcbjkhlasdbckjlahsdbchjkasdbcjkahs" >> plan.txt
 
     - id: issue
-      uses: snskarora/manual-approval@temp
+      uses: trstringer/manual-approval@v1
       with:
         secret: ${{ steps.generate_token.outputs.token }}
         approvers: snskArora
