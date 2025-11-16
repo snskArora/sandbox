@@ -76,7 +76,6 @@ jobs:
     - id: issue
       uses: trstringer/manual-approval@v1
       with:
-        secret: ${{ steps.generate_token.outputs.token }}
         approvers: snskArora
         minimum-approvals: 1
         issue-body: |
@@ -93,6 +92,7 @@ jobs:
         echo "${{ steps.issue.outputs.approval-status }}"
         echo "--------------"
         echo "${{ toJSON(steps.issue.outputs) }}"
+
 
 
 
