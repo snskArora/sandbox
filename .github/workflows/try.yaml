@@ -26,16 +26,19 @@ jobs:
     #   matrix: 
     #     os: [ubuntu-latest, macos-latest]
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: write
     steps:
     - name: checkout
       uses: actions/checkout@v4
 
-    - name: Generate token
-      id: generate_token
-      uses: tibdex/github-app-token@v1
-      with:
-        app_id: ${{ secrets.APP_ID }}
-        private_key: ${{ secrets.APP_PRIVATE_KEY }}
+    # - name: Generate token
+    #   id: generate_token
+    #   uses: tibdex/github-app-token@v1
+    #   with:
+    #     app_id: ${{ secrets.APP_ID }}
+    #     private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
     # - name: tag bump
     #   id: tag-bump
@@ -90,5 +93,6 @@ jobs:
         echo "${{ steps.issue.outputs.approval-status }}"
         echo "--------------"
         echo "${{ toJSON(steps.issue.outputs) }}"
+
 
 
