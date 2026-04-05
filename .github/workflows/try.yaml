@@ -74,7 +74,7 @@ jobs:
         echo "sdfklvhjcbaskhfvbjkhdasfvbhbjkhbjkhbjkhbdjkhcvbasdhjkbcajkshdcbkjashdcbjkhlasdbckjlahsdbchjkasdbcjkahs" >> plan.txt
 
     - id: issue
-      uses: trstringer/manual-approval@v1
+      uses: snskarora/manual-approval@latest
       with:
         secret: ${{ secrets.GITHUB_TOKEN }}
         approvers: snskArora
