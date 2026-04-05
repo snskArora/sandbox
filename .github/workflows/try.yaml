@@ -78,6 +78,7 @@ jobs:
       with:
         secret: ${{ secrets.GITHUB_TOKEN }}
         approvers: snskArora
+        close-issue-means-denial: true
         minimum-approvals: 1
         issue-body: |
             
