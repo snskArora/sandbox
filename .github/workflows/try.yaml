@@ -74,7 +74,8 @@ jobs:
         echo "sdfklvhjcbaskhfvbjkhdasfvbhbjkhbjkhbjkhbdjkhcvbasdhjkbcajkshdcbkjashdcbjkhlasdbckjlahsdbchjkasdbcjkahs" >> plan.txt
 
     - id: issue
-      uses: snskarora/manual-approval@feature/add_labels
+      uses: trstringer/manual-approval@v1.13.0
+      # uses: snskarora/manual-approval@feature/add_labels
       with:
         secret: ${{ secrets.GITHUB_TOKEN }}
         approvers: snskArora
