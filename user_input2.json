@@ -1,0 +1,8 @@
+{
+  "locations": "nane1,nane2",
+  "tf_action": "plan",
+  "regions": [
+    "nane1",
+    "nane2"
+  ]
+}
