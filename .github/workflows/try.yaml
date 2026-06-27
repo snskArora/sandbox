@@ -74,11 +74,12 @@ jobs:
         echo "sdfklvhjcbaskhfvbjkhdasfvbhbjkhbjkhbjkhbdjkhcvbasdhjkbcajkshdcbkjashdcbjkhlasdbckjlahsdbchjkasdbcjkahs" >> plan.txt
 
     - id: issue
-      uses: snskarora/manual-approval@feature/deny-on-issue-closure
+      uses: snskarora/manual-approval@feature/add_labels
       with:
         secret: ${{ secrets.GITHUB_TOKEN }}
         approvers: snskArora
         close-issue-means-denial: true
+        issue-labels: "l1,l2,   l3,  l5   ,,,"
         fail-on-denial: false
         minimum-approvals: 1
         issue-body: |
